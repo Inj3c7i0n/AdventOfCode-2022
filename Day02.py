@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # Getting the input DATA
-with open('Day2.in') as file:
+with open('Day02.in') as file:
     rounds = [i.replace(" ", "") for i in file.read().strip().split('\n')]
 
 # View Data
@@ -38,7 +38,7 @@ total_score_p1 = 0
 for round in rounds:
     total_score_p1 += outcomes[round]
 
-print("Answer to part 1:", total_score_p1)
+print("Answer to Part 1:", total_score_p1)
 
 
 # Desired outcomes
@@ -57,4 +57,4 @@ total_score_p2 = 0
 for round in rounds:
     total_score_p2 += realOutcomes[round]
 
-print("Answer to part 2:", total_score_p2)
+print("Answer to Part 2:", total_score_p2)

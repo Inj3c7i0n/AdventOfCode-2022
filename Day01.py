@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # Getting the input data
-with open('Day1.in') as file:
+with open('Day01.in') as file:
     data = [i for i in file.read().strip().split("\n")]     # Put Data in a list seperated by empty strings.
 
 # print(data)
