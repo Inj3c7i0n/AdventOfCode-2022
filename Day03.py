@@ -15,23 +15,39 @@ from string import ascii_letters
 # Open the input file
 with open("Day03.in", "r") as file:
     # Initialize the running total to 0
-    total = 0
-
+    data = [i for i in file.read().strip().split("\n")]
+    
 # ---===[PART ONE]===---
-
-    for line in file:
-        # Make a halfway point
-        half = len(line)//2
-        
-        # Split the input string in half
-        half1 = set(line[:half])
-        half2 = set(line[half:])
-       
-        # print(half1, half2)
-        
-        for value, character in enumerate(ascii_letters):
-            if character in half1 and character in half2:
-                total += value + 1
+totalSum = 0
+for line in data:
+    # Make a halfway point
+    half = len(line)//2
+    
+    # Split the input string in half
+    half1 = set(line[:half])
+    half2 = set(line[half:])
+   
+    # print(half1, half2)
+    
+    for value, character in enumerate(ascii_letters):
+        if character in half1 and character in half2:
+            totalSum += value + 1
 
 # Print the total
-print("Answer to Part 1:", total)
+print("Answer to Part 1:", totalSum)
+
+# ---===[PART TWO]===---
+totalSum = 0
+# Iterate through the list in steps of 3
+for i in range(0, len(data), 3):
+  # Get the current group of 3 lines
+  group = data[i:i+3]
+  # print(group)
+  # Check for common letters between the lines of the group
+  common_letters = set(group[0]) & set(group[1]) & set(group[2])
+  for value, character in enumerate(ascii_letters):
+    if character in common_letters:
+      totalSum += value + 1
+
+      
+print("Answer to Part 2:", totalSum)
